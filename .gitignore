@@ -11,3 +11,8 @@
 /log/*
 !/log/.keep
 /tmp
+
+#webpack
+/webpack/node_modules
+/webpack/dist
+/webpack/npm-debug.log
