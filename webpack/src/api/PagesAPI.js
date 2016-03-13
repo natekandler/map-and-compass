@@ -1,7 +1,11 @@
-import { webAPI, post } from './BaseAPI'; 
+import { webAPI } from './BaseAPI'; 
+const baseURL = __DEVELOPMENT__ ? "http://127.0.0.1:3000" : "";
 
-export function submitContact(data){
-  console.warn(data);
-    return fetch('/pages.json', data).then(response => response.json());
-  }
+var parseJson = function (response) {
+  return response.json();
+};
+
+export function getPages(){
+  return fetch(baseURL + '/pages.json').then(parseJson)
+}
 
