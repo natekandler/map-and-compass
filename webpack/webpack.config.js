@@ -22,5 +22,13 @@ module.exports = {
       },
     ]
   },
+  plugins: [
+    new webpack.ProvidePlugin({
+      'fetch': 'imports?this=>global!exports?global.fetch!whatwg-fetch'
+    }),
+    new webpack.DefinePlugin({
+      __DEVELOPMENT__: true,
+    }),
+  ]
 };
 
