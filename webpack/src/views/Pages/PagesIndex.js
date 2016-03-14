@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-import { getPages } from '../../api/PagesAPI'
+import { getPages, parseJson } from '../../api/PagesAPI'
 
 export default class PagesIndex extends Component {
 
