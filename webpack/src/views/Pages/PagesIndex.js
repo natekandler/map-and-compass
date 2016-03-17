@@ -10,6 +10,7 @@ export default class PagesIndex extends Component {
     return (
       <div>
         <h1>PagesIndex</h1>
+        
       </div>
     );
   }

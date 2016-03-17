@@ -5,7 +5,6 @@ export function webAPI(url){
 };
 
 export function post(url, data){
-  console.warn(JSON.stringify(data));
   return fetch(baseURL + url, {
     method: 'post',
     headers: {
