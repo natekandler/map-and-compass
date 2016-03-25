@@ -1,9 +1,5 @@
 export function getPages(){
-  return () => {
-    fetch('http://localhost:3000/pages.json').then(function (response){
-      return response.json()
-    });
-  }
+  return fetch('http://localhost:3000/pages.json')
 }
 
 
