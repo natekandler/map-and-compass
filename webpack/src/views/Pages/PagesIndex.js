@@ -16,7 +16,7 @@ export default class PagesIndex extends Component {
     getPages().then((response) => {
       response.json().then((data) => {
         let pages = data.pages.map(page => 
-         <div>{page.excerpt}</div> 
+         <div><div>{page.excerpt}</div><div dangerouslySetInnerHTML={{__html: page.content}}/></div>
         )
         this.setState({pages: pages})
       });
