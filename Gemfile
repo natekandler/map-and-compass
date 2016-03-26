@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'rails_admin', '~> 0.8.1'
-gem 'wysiwyg-rails', '~> 2.2', '>= 2.2.1'
+gem "wysiwyg-rails", "~> 1.2.7"
 
 # Use Unicorn as the app server
 # gem 'unicorn'

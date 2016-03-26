@@ -23,6 +23,9 @@ RailsAdmin.config do |config|
     edit do
       field :title
       field :excerpt
+      field :content, :froala  do
+        html_attributes rows: 20, cols: 50
+      end
     end
 
     list do
@@ -33,6 +36,7 @@ RailsAdmin.config do |config|
     show do
       field :title
       field :excerpt
+      field :content
     end
   end  
 
