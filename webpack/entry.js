@@ -7,10 +7,12 @@ import Home from "./src/views/Home/Home"
 import PagesIndex from "./src/views/Pages/PagesIndex"
 import configureStore from './src/redux/store/configure_store';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
+import { pagesReducer } from './src/reducers/pages_reducer';
 require('./src/styles/style.scss');
 
 const store = createStore(
   combineReducers({
+    pages: pagesReducer,
     routing: routerReducer
   })
 )
