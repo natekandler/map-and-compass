@@ -4,7 +4,7 @@
   "description": "Map and Compass website",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --inline",
+    "start": "webpack-dev-server --progress --inline --port 8081",
     "test": "echo \"Error: no test specified\" && exit 1",
     "asset_sync": "node asset_sync.js"
   },
