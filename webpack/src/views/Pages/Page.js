@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-import { getPages } from '../../api/PagesAPI'
+import { getPages, getPages2 } from '../../api/PagesAPI'
 import { connect } from 'react-redux';
 
 
