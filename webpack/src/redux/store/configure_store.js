@@ -14,8 +14,8 @@ export default function configureStore(initialState = {}){
 
   //Webpack support for hot reloading of reducers
   if (module.hot) {
-    module.hot.accept('../modules', () =>
-      store.replaceReudcer(require('../modules'))
+    module.hot.accept('../../reducers', () =>
+      store.replaceReudcer(require('../../reducers'))
     );
   }
 

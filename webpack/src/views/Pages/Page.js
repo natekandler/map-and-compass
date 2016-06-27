@@ -4,7 +4,7 @@ import { getPages, getPages2 } from '../../api/PagesAPI'
 import { connect } from 'react-redux';
 
 
-export default class PagesIndex extends Component {
+export default class Page extends Component {
   componentWillMount(){
     console.warn("props")
     console.warn(this.props)
@@ -48,5 +48,5 @@ function mapStateToProps(state) {
 //connect takes a function and a component and creates a container
 //promote booklist from a component to a container. - it needs to know about new dispatch method,
 //selectBook. Make it available as a prop
-export default connect(mapStateToProps)(PagesIndex);
+export default connect(mapStateToProps)(Page);
 

@@ -5,6 +5,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import { Router, Route, Link, browserHistory } from 'react-router'
 import Home from "./src/views/Home/Home"
 import PagesIndex from "./src/views/Pages/PagesIndex"
+import Page from "./src/views/Pages/Page"
 import configureStore from './src/redux/store/configure_store';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
 import  pagesReducer  from './src/reducers/pages_reducer';
@@ -23,10 +24,9 @@ render((
   <Provider store={store}>
     <div>
       <Router history={history}>
-        <Route path="/" component={Home}>
-        </Route>
-        <Route path="/Pages" component={PagesIndex}>
-        </Route>
+        <Route path="/" component={Home} />
+        <Route path="/Pages" component={PagesIndex} />
+        <Route path="/Page/:pageId" component={PagesIndex} />
       </Router>
     </div>
   </Provider>
