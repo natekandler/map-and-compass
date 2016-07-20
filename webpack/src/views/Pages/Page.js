@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router'
-import { getPages, getPages2 } from '../../api/PagesAPI'
+import { Router, Route, Link, browserHistory } from 'react-router'
+
+import { getPage } from '../../api/PagesAPI'
 import { connect } from 'react-redux';
 
 
 export default class Page extends Component {
   componentWillMount(){
-    console.warn("props")
-    console.warn(this.props)
-    this.setState({pages: null})
+    this.setState({id: null})
   }
 
   componentDidMount(){
-    this.renderPages()
+    this.renderPage(this.props.id)
   };
   
-  renderPages() {
-    getPages().then((response) => {
+  renderPage(pageId) {
+    getPage(pageId).then((response) => {
       response.json().then((data) => {
-        let pages = data.pages.map(page => 
-         <div><div>{page.excerpt}</div><div dangerouslySetInnerHTML={{__html: page.content}}/></div>
-        )
-        this.setState({pages: pages})
+        this.setState({title: data.title})
       });
     })
   }
@@ -29,20 +25,19 @@ export default class Page extends Component {
   render() {
     return (
       <div>
-        <h1>PagesIndex</h1>
+        <h1>Page</h1>
           <div ref="pagesWrapper">
-            {this.state.pages}
+            {this.state.title}
           </div>
       </div>
     );
   }
 };
 
-function mapStateToProps(state) {
-  //whatever is returned from here will show up as props inside Booklist
+function mapStateToProps(state, ownProps) {
   return {
-    pages: state.pages
-  }
+    id: ownProps.params.id,
+  };
 }
 //Anything returned from this function will end up as props on the booklist container
 //connect takes a function and a component and creates a container

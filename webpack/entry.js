@@ -25,8 +25,8 @@ render((
     <div>
       <Router history={history}>
         <Route path="/" component={Home} />
-        <Route path="/Pages" component={PagesIndex} />
-        <Route path="/Page/:pageId" component={PagesIndex} />
+        <Route path="pages/:id" component={Page} />
+        <Route path="pages" component={PagesIndex} />
       </Router>
     </div>
   </Provider>
