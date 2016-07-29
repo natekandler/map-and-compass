@@ -12,22 +12,33 @@ export default class Page extends Component {
 
   componentDidMount(){
     this.renderPage(this.props.id)
+    console.log('page props', this.props)
   };
   
   renderPage(pageId) {
     getPage(pageId).then((response) => {
       response.json().then((data) => {
-        this.setState({title: data.title})
+        console.log(data)
+        this.setState({
+          title: data.title,
+          content: data.content,
+          excerpt: data.excerpt
+        })
       });
     })
   }
   
   render() {
+    console.log('content', this.state.content)
     return (
       <div>
         <h1>Page</h1>
           <div ref="pagesWrapper">
             {this.state.title}
+          </div>
+          <div>
+            <div>{this.state.excerpt}</div>
+            <div className="content" dangerouslySetInnerHTML={{__html: this.state.content}}/>
           </div>
       </div>
     );

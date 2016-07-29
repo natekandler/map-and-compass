@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux'
-import { Router, Route, Link, browserHistory } from 'react-router'
+import { Router, Route, Link, browserHistory, IndexRoute } from 'react-router'
 import Home from "./src/views/Home/Home"
 import PagesIndex from "./src/views/Pages/PagesIndex"
 import Page from "./src/views/Pages/Page"
@@ -24,11 +24,16 @@ render((
   <Provider store={store}>
     <div>
       <Router history={history}>
-        <Route path="/" component={Home} />
-        <Route path="pages/:id" component={Page} />
-        <Route path="pages" component={PagesIndex} />
+        <Route path="/" >
+          <IndexRoute component={Home}/>
+          <Route path="/pages" >
+            <IndexRoute component={PagesIndex}/>
+            <Route path="/pages/:id" component={Page} />
+          </Route>
+        </Route>
       </Router>
     </div>
   </Provider>
 ), document.body)
+// change document.body to findElementById('root')
 
