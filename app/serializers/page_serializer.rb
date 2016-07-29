@@ -1,3 +1,3 @@
 class PageSerializer < ActiveModel::Serializer
-  attributes :id, :excerpt, :content
+  attributes :id, :excerpt, :content, :title
 end
