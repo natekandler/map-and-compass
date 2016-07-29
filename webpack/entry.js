@@ -30,10 +30,13 @@ render((
             <IndexRoute component={PagesIndex}/>
             <Route path="/pages/:id" component={Page} />
           </Route>
+          <Route path="/categories" >
+            <IndexRoute component={PagesIndex}/>
+            <Route path="/categories/:id" component={Page} />
+          </Route>
         </Route>
       </Router>
     </div>
   </Provider>
-), document.body)
-// change document.body to findElementById('root')
+), document.getElementById('root'))
 

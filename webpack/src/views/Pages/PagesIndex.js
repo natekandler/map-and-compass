@@ -6,8 +6,6 @@ import { connect } from 'react-redux';
 
 export default class PagesIndex extends Component {
   componentWillMount(){
-    console.warn("props")
-    console.warn(this.props)
     this.setState({pages: null})
   }
 

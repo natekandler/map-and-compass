@@ -18,7 +18,6 @@ export default class Page extends Component {
   renderPage(pageId) {
     getPage(pageId).then((response) => {
       response.json().then((data) => {
-        console.log(data)
         this.setState({
           title: data.title,
           content: data.content,
