@@ -20,8 +20,6 @@ export default class Nav extends Component {
             <ul>
               <li key="4"><Link to={"/categories/guides"}>Guides</Link></li>
               <li key="5"><Link to={"/categories/photo_essays"}>Photo Essays</Link></li>
-              <a href="#"><li>Guides</li></a>
-              <a href="#"><li>Photo Essays</li></a>
             </ul>
           </li>
           <li key="6"><Link to={"/about"}>About</Link></li>
