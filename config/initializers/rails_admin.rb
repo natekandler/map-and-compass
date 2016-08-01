@@ -18,7 +18,7 @@ RailsAdmin.config do |config|
   # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
-  config.included_models = ["Page"]
+  config.included_models = ["Page", "Category"]
   config.model Page do
     edit do
       field :title
@@ -26,6 +26,7 @@ RailsAdmin.config do |config|
       field :content, :froala  do
         html_attributes rows: 20, cols: 50
       end
+      #field :category
     end
 
     list do
@@ -37,6 +38,25 @@ RailsAdmin.config do |config|
       field :title
       field :excerpt
       field :content
+    end
+  end  
+
+  config.model Category do
+    edit do
+      field :name
+      field :slug
+    end
+
+    list do
+      field :id
+      field :name
+      field :slug
+    end
+
+    show do
+      field :id
+      field :name
+      field :slug
     end
   end  
 

@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-import { getPage } from '../../api/PagesAPI'
+import { getCategory } from '../../api/CategoriesAPI'
 import { connect } from 'react-redux';
 
 
-export default class Page extends Component {
+export default class Category extends Component {
   componentWillMount(){
-    this.setState({slug: null})
+    this.setState({id: null})
   }
 
   componentDidMount(){
-    this.renderPage(this.props.slug)
+    this.renderPage(this.props.id)
     console.log('page props', this.props)
   };
   
-  renderPage(pageId) {
-    getPage(pageId).then((response) => {
+  renderPage(categoryId) {
+    getCategory(categoryId).then((response) => {
       response.json().then((data) => {
         this.setState({
           title: data.title,
@@ -53,5 +53,5 @@ function mapStateToProps(state, ownProps) {
 //connect takes a function and a component and creates a container
 //promote booklist from a component to a container. - it needs to know about new dispatch method,
 //selectBook. Make it available as a prop
-export default connect(mapStateToProps)(Page);
+export default connect(mapStateToProps)(Category);
 

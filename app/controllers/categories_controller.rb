@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    page = Category.find(params[:id])
+    page = Category.find_by(slug: params[:slug])
     render json: page 
   end
 end

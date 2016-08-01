@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def show
-    page = Page.find(params[:id])
+    page = Page.find_by(slug: params[:slug])
     render json: page 
   end
 end
