@@ -31,6 +31,7 @@ gem "wysiwyg-rails", "~> 1.2.7"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
+gem 'paperclip', '~> 5.0'
 
 #serializer
 gem 'active_model_serializers', '~> 0.9.4'

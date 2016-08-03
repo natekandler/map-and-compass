@@ -26,6 +26,7 @@ RailsAdmin.config do |config|
       field :content, :froala  do
         html_attributes rows: 20, cols: 50
       end
+      field :feature_image
       #field :category
     end
 
@@ -38,6 +39,7 @@ RailsAdmin.config do |config|
       field :title
       field :excerpt
       field :content
+      field :feature_image
     end
   end  
 

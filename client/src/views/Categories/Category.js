@@ -1,44 +1,36 @@
 import React, { Component } from 'react';
 import { Router, Route, Link, browserHistory } from 'react-router'
 
-import { getPage } from '../../api/PagesAPI'
+import { getCategory } from '../../api/CategoriesAPI'
 import { connect } from 'react-redux';
 
 
-export default class Page extends Component {
+export default class Category extends Component {
   componentWillMount(){
-    this.setState({slug: null})
+    this.setState({slug: ''})
   }
 
   componentDidMount(){
-    this.renderPage(this.props.slug)
+    this.renderCategory(this.props.slug)
     console.log('page props', this.props)
   };
   
-  renderPage(pageId) {
-    getPage(pageId).then((response) => {
+  renderCategory(categorySlug) {
+    getCategory(categorySlug).then((response) => {
       response.json().then((data) => {
         this.setState({
-          title: data.title,
-          content: data.content,
-          excerpt: data.excerpt
+          name: data.category.name,
+          pages: data.category.pages
         })
       });
     })
   }
-  
+
   render() {
     console.log('content', this.state.content)
     return (
       <div>
-        <h1>Page</h1>
-          <div ref="pagesWrapper">
-            {this.state.title}
-          </div>
-          <div>
-            <div>{this.state.excerpt}</div>
-            <div className="content" dangerouslySetInnerHTML={{__html: this.state.content}}/>
-          </div>
+        <h1>{this.state.name}</h1>
       </div>
     );
   }
@@ -46,12 +38,12 @@ export default class Page extends Component {
 
 function mapStateToProps(state, ownProps) {
   return {
-    id: ownProps.params.id,
+    slug: ownProps.params.slug,
   };
 }
 //Anything returned from this function will end up as props on the booklist container
 //connect takes a function and a component and creates a container
 //promote booklist from a component to a container. - it needs to know about new dispatch method,
 //selectBook. Make it available as a prop
-export default connect(mapStateToProps)(Page);
+export default connect(mapStateToProps)(Category);
 

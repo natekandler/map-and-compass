@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router'
-import { getPages } from '../../api/PagesAPI'
+import { getCategories } from '../../api/CategoriesAPI'
 import { connect } from 'react-redux';
+import Nav from '../Nav/Nav'
 
 
 export default class CategoriesIndex extends Component {
@@ -27,6 +28,7 @@ export default class CategoriesIndex extends Component {
   render() {
     return (
       <div>
+        <Nav />
         <h1>PagesIndex</h1>
           <div ref="pagesWrapper">
             {this.state.pages}

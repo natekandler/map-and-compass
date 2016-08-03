@@ -4,8 +4,13 @@ class CategoriesController < ApplicationController
     render json: { success: true, pages: pages }
   end
 
-  def show
+  def display_category
     page = Category.find_by(slug: params[:slug])
+    render json: page 
+  end
+
+  def show
+    page = Category.find_by(slug: params[:id])
     render json: page 
   end
 end
