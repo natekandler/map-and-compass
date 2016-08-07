@@ -13,7 +13,7 @@ import Advertise from "./src/views/Advertise/Advertise"
 
 import configureStore from './src/redux/store/configure_store';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
-import  pagesReducer  from './src/reducers/pages_reducer';
+import pagesReducer  from './src/reducers/pages_reducer';
 import categoriesReducer from './src/reducers/categories_reducer';
 require('./src/styles/style.scss');
 

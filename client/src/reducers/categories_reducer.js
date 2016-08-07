@@ -1,3 +1,6 @@
+import { getCategories } from '../api/CategoriesAPI'
+
 export default function(state, action){
-  return ["categories 1", "categories 2"]
+  return getCategories()
+  // return [{name: "Inspiration", id: 1, slug: "inspiration"}, {name: "Guides", id: 2, slug: "guides"}]
 }

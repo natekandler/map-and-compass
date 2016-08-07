@@ -6,32 +6,21 @@ import Nav from '../Nav/Nav'
 
 
 export default class CategoriesIndex extends Component {
-  componentWillMount(){
-    this.setState({categories: null})
-  }
 
-  componentDidMount(){
-    this.renderPages()
-  };
-  
-  renderPages() {
-    getPages().then((response) => {
-      response.json().then((data) => {
-        let pages = data.pages.map(page => 
-          <li key={page.id}><Link to={`/pages/${page.id}`}>{page.title}</Link></li>
-        )
-        this.setState({pages: pages})
-      });
-    })
+  renderCategories() {
+    console.log(this.props.categories)
+    return this.props.categories.map(category => 
+      <li key={category.id}><Link to={`/categories/${category.slug}`}>{category.name}</Link></li>
+    )
   }
   
   render() {
     return (
       <div>
         <Nav />
-        <h1>PagesIndex</h1>
+        <h1>Categories Index</h1>
           <div ref="pagesWrapper">
-            {this.state.pages}
+            {this.renderCategories()}
           </div>
       </div>
     );
@@ -39,7 +28,6 @@ export default class CategoriesIndex extends Component {
 };
 
 function mapStateToProps(state) {
-  //whatever is returned from here will show up as props inside Booklist
   return {
     categories: state.categories
   }
