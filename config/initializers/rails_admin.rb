@@ -27,7 +27,7 @@ RailsAdmin.config do |config|
         html_attributes rows: 20, cols: 50
       end
       field :feature_image
-      #field :category
+      field :categories
     end
 
     list do
@@ -47,6 +47,7 @@ RailsAdmin.config do |config|
     edit do
       field :name
       field :slug
+      field :pages
     end
 
     list do
