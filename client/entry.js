@@ -9,7 +9,7 @@ import Page from "./src/views/Pages/Page"
 import CategoriesIndex from "./src/views/Categories/CategoriesIndex"
 import Category from "./src/views/Categories/Category"
 import About from "./src/views/About/About"
-import Advertise from "./src/views/Advertise/Advertise"
+
 
 import configureStore from './src/redux/store/configure_store';
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux'
